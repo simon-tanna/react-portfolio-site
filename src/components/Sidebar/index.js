@@ -1,59 +1,74 @@
-import { Link, NavLink } from 'react-router-dom'
-import './index.scss'
-import SimonLogo from '../../assets/images/st-logo.png'
-import SimonName from '../../assets/images/simon-name.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faHome, faUser } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
+import {
+	Home,
+	Face,
+	Email,
+	Source,
+	LinkedIn,
+	GitHub,
+} from "@mui/icons-material";
+import "./index.scss";
+import SimonLogo from "../../assets/images/2.png";
 
-const Sidebar = () => (
-  <div className="nav-bar">
-    <Link className="logo" to="/">
-      <img src={SimonLogo} alt="logo" />
-      <img className="sub-logo" src={SimonName} alt="simon tanna" />
-    </Link>
-    <nav>
-      <NavLink exact="true" activeclassname="active" to="/">
-        <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
-      </NavLink>
-      <NavLink
-        exact="true"
-        activeclassname="active"
-        className="about-link"
-        to="/about"
-      >
-        <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
-      </NavLink>
-      <NavLink
-        exact="true"
-        activeclassname="active"
-        className="contact-link"
-        to="/contact"
-      >
-        <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
-      </NavLink>
-    </nav>
-    <ul>
-      <li>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://www.linkedin.com/in/simon-tanna-117b75224/"
-        >
-          <FontAwesomeIcon icon={faLinkedin} color="#4d4d4e" />
-        </a>
-      </li>
-      <li>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="https://github.com/simon-tanna/"
-        >
-          <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
-        </a>
-      </li>
-    </ul>
-  </div>
-)
+const SideBar = () => {
+	return (
+		<div className="nav-bar">
+			<Link className="logo" to="/">
+				<img src={SimonLogo} alt="simon logo" />
+			</Link>
+			<nav className="navigation-menu">
+                {/* <Menu className="hamburger" /> */}
+				<NavLink exact="true" activeclassname="active" to="/" className="home-link">
+					<Home color="#4d4d4e" />
+				</NavLink>
+				<NavLink
+					exact="true"
+					activeclassname="active"
+					className="about-link"
+					to="/about"
+				>
+					<Face />
+				</NavLink>
+				<NavLink
+					exact="true"
+					activeclassname="active"
+					className="projects-link"
+					to="/projects"
+				>
+					<Source />
+				</NavLink>
+				<NavLink
+					exact="true"
+					activeclassname="active"
+					className="contact-link"
+					to="/contact"
+				>
+					<Email />
+				</NavLink>
+			</nav>
+			<ul>
+				<li>
+					<a
+						target="_blank"
+						rel="noreferrer"
+						href="https://www.linkedin.com/in/simon-tanna-117b75224/"
+					>
+						<LinkedIn />
+					</a>
+				</li>
+				<li>
+					<a
+						target="_blank"
+						rel="noreferrer"
+						href="https://github.com/simon-tanna/"
+					>
+						<GitHub />
+					</a>
+				</li>
+			</ul>
+		</div>
+	);
+};
 
-export default Sidebar
+export default SideBar;
